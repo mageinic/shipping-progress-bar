@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_ShippingProgressBar
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageinic" translate="label" sortOrder="500">
+            <label>MageINIC</label>
+        </tab>
+        <section id="shippingbar" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Shipping Progress Bar</label>
+            <tab>mageinic</tab>
+            <resource>MageINIC_ShippingProgressBar::shippingbar</resource>
+            <group id="shippingsection" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="shipping_progress_bar_enable" sortOrder="10" translate="label comment" showInDefault="1"
+                       showInWebsite="1" showInStore="1" type="select">
+                    <label>Enable Shipping Progress Bar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable Shipping Progress Bar.</comment>
+                </field>
+                <field id="shipping_bar" translate="label comment" type="select" sortOrder="12" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Minimum Order Amount</label>
+                    <source_model>MageINIC\ShippingProgressBar\Model\Config\Source\ShippingFee</source_model>
+                    <frontend_model>MageINIC\ShippingProgressBar\Model\Config\Source\Disable</frontend_model>
+                    <comment>This price will come from shipping Minimum Order Amount.</comment>
+                </field>
+                <field id="initial_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Initial Message</label>
+                    <comment>
+                        <![CDATA[Set Initial Message Here. <br> <strong class="colorRed">Note</strong>:
+                         For showing price inside the progress bar use this {{price}}.]]>
+                    </comment>
+                </field>
+                <field id="in_progress_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>In Progress Message</label>
+                    <comment>
+                        <![CDATA[Set In Progress Message Here.<br> <strong class="colorRed">Note</strong>:
+                        For showing price inside the progress bar use this {{price}}.]]>
+                    </comment>
+                </field>
+                <field id="achieved_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Achieved Message</label>
+                    <comment>Set Achieved Message Here</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,61 @@
+<?php
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_ShippingProgressBar
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+
+use MageINIC\ShippingProgressBar\Block\Cart\Sidebar;
+
+/**
+ * @var Sidebar $block
+ */
+?>
+<?php if ($block->getCoreFreeShippingStatus()) : ?>
+    <?php if ($block->getPriceForShippingProgressBar()) : ?>
+    <?php
+        $initialMessage = $block->getInitialMessage();
+        $getFreeShippingAmount = [
+            '{{price}}' => $block->getCurrentCurrencySymbol().$block->getPriceForShippingProgressBar(),
+        ];
+        ?>
+        <div id="cart-page" class="free-shipping-ext">
+            <div id="block-cart-list" data-bind="scope:'minicart-addons'" class="block">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <script>
+                    window.getInitialMessage = "<?=  /* @noEscape */ __(strtr($initialMessage, $getFreeShippingAmount)); ?>";
+                    window.getStoreCurrencySymbol = "<?=  /* @noEscape */ $block->getCurrentCurrencySymbol(); ?>";
+                    window.getAchievedMessage = "<?=  /* @noEscape */ __($block->getAchievedMessage()); ?>";
+                    window.inProgressMessage = "<?=  /* @noEscape */ __($block->inProgressMessage()); ?>";
+                    maxpriceShipping = <?=  /* @noEscape */ $block->getPriceForShippingProgressBar() ?>;
+                </script>
+                <script type="text/x-magento-init">
+                {
+                   "#block-cart-list":
+                     {
+                       "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout(); ?>
+                     }
+                }
+                </script>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
