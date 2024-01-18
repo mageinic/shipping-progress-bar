@@ -1,9 +1,9 @@
 {
-    "name": "mageinic\/shippingprogressbar",
+    "name": "mageinic/shipping-progress-bar",
     "description": "Shipping Progress Bar Extension By MageINIC, enhances your online store's performance by displaying a dynamic progress bar on all pages. Customize messages to inform customers of shipping policies, incentivize additional purchases for free shipping, and celebrate their achievements.",
     "require": {
         "php": "^8.0",
-        "mageinic\/core": ">=1.0.0"
+        "mageinic/core": "1.0.*"
     },
     "type": "magento2-module",
     "version": "1.0.0",

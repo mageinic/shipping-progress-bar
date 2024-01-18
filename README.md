@@ -11,7 +11,7 @@
 Run the following command in Magento 2 root folder
 
 ```
-composer require mageinic/shippingprogressbar
+composer require mageinic/shipping-progress-bar
 
 php bin/magento maintenance:enable
 php bin/magento setup:upgrade

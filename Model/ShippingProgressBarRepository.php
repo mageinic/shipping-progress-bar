@@ -113,4 +113,3 @@ class ShippingProgressBarRepository implements ShippingProgressBarRepositoryInte
         return $shippingProgressBar;
     }
 }
-

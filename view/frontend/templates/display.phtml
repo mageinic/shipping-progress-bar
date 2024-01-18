@@ -29,9 +29,9 @@ use MageINIC\ShippingProgressBar\Block\Cart\Sidebar;
  * @var Sidebar $block
  */
 ?>
-<?php if ($block->getCoreFreeShippingStatus()) : ?>
-    <?php if ($block->getPriceForShippingProgressBar()) : ?>
-    <?php
+<?php if ($block->getCoreFreeShippingStatus()): ?>
+    <?php if ($block->getPriceForShippingProgressBar()): ?>
+        <?php
         $initialMessage = $block->getInitialMessage();
         $getFreeShippingAmount = [
             '{{price}}' => $block->getCurrentCurrencySymbol().$block->getPriceForShippingProgressBar(),
@@ -43,7 +43,7 @@ use MageINIC\ShippingProgressBar\Block\Cart\Sidebar;
                 <script>
                     window.getInitialMessage = "<?=  /* @noEscape */ __(strtr($initialMessage, $getFreeShippingAmount)); ?>";
                     window.getStoreCurrencySymbol = "<?=  /* @noEscape */ $block->getCurrentCurrencySymbol(); ?>";
-                    window.getAchievedMessage = "<?=  /* @noEscape */ __($block->getAchievedMessage()); ?>";
+                    window.getAchievedMessage = "<?=  /* @noEscape */ __(strtr($block->getAchievedMessage(), $getFreeShippingAmount)); ?>";
                     window.inProgressMessage = "<?=  /* @noEscape */ __($block->inProgressMessage()); ?>";
                     maxpriceShipping = <?=  /* @noEscape */ $block->getPriceForShippingProgressBar() ?>;
                 </script>

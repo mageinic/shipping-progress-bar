@@ -52,7 +52,7 @@
                     <comment>This price will come from shipping Minimum Order Amount.</comment>
                 </field>
                 <field id="initial_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
-                       showInWebsite="1" showInStore="1">
+                       showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Initial Message</label>
                     <comment>
                         <![CDATA[Set Initial Message Here. <br> <strong class="colorRed">Note</strong>:
@@ -60,7 +60,7 @@
                     </comment>
                 </field>
                 <field id="in_progress_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
-                       showInWebsite="1" showInStore="1">
+                       showInWebsite="1" showInStore="1" canRestore="1">
                     <label>In Progress Message</label>
                     <comment>
                         <![CDATA[Set In Progress Message Here.<br> <strong class="colorRed">Note</strong>:
@@ -68,7 +68,7 @@
                     </comment>
                 </field>
                 <field id="achieved_message" translate="label comment" type="text" sortOrder="12" showInDefault="1"
-                       showInWebsite="0" showInStore="0">
+                       showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Achieved Message</label>
                     <comment>Set Achieved Message Here</comment>
                 </field>
